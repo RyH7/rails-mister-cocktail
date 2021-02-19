@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Cocktails#index</h1>
+  <p>Find me in app/views/cocktails/index.html.erb</p>
+
+  <table class="container">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @cocktails.each do |cocktail| %>
+        <tr>
+          <td><%= link_to cocktail.name, cocktail_path(cocktail) %></td>
+      <%  end %>
+        </tr>
+    </tbody>
+  </table>
+  <%= link_to "Add a new Cocktail", new_cocktail_path %>
+</div>
+<!-- insert link_to where required still -->

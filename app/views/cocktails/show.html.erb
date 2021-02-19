@@ -1,0 +1,31 @@
+
+<div class="container">
+  <h1>Cocktails#show</h1>
+  <p>Find me in app/views/cocktails/show.html.erb</p>
+  <h2><%= @cocktail.name %></h2>
+
+  <strong>Ingredients:</strong>
+  <ul class="list-group">
+    <% @cocktail.doses.each do |dose| %>
+      <li class="list-group-item">
+        <%= dose.description %>
+        <%= dose.ingredient.name%>
+        <%= link_to "Remove", review_path(review),method: :delete,
+          data: { confirm: "Are you sure?" } %>
+
+      </li>
+    <% end %>
+  </ul>
+
+  <!--  -->
+
+  <%=link_to 'Return to Cocktail List', cocktails_path %>
+</div>
+
+<div class="container">
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.button :submit, class: 'btn-danger' %>
+  <% end %>
+</div>
