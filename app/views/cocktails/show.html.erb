@@ -10,7 +10,7 @@
       <li class="list-group-item">
         <%= dose.description %>
         <%= dose.ingredient.name%>
-        <%= link_to "Remove", review_path(review),method: :delete,
+        <%= link_to "Remove", dose_path(dose),method: :delete,
           data: { confirm: "Are you sure?" } %>
 
       </li>
